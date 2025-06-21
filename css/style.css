@@ -3,6 +3,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .body {
@@ -13,38 +14,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-#scoreBox {
-    position: absolute;
-    top: 70px;
-    right: 180px;
-    font-size: 39px;
-    font-weight: bold;
+
+
+.score-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    width: 100%;
+    padding: 20px 40px;
     font-family: "Tektur", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+    font-size: 32px;
+    font-weight: bold;
 }
 
-#highscoreBox{
-    position: absolute;
-    top: 20px;
-    right: 100px;
-    font-size: 39px;
-    font-weight: bold;
-    font-family: "Tektur", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+#scoreBox, #highscoreBox {
+    position: static;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
 }
 
 #board {
     background: linear-gradient(rgb(139, 141, 139), rgb(245, 245, 191));
     width: 90vmin;
-    height: 92vmin;
+    height: 80vmin;
     border: 5px solid black;
     border-radius: 10px;
     display: grid;
@@ -71,3 +67,13 @@
     border-radius: 8px;
 }
 
+/* ✅ Responsive layout under 500px */
+@media (max-width: 850px) {
+    .score-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        gap: 8px;
+        font-size: 20px;
+    }
+}
